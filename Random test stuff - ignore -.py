@@ -2,6 +2,7 @@ import math
 import pygame
 import datetime
 
+
 pygame.init()
 screen = pygame.display.set_mode((900, 600))
 hand_surface = pygame.Surface((900, 600), pygame.SRCALPHA)
@@ -61,3 +62,6 @@ while True:
     Hands(75, hour, Colour_W)
     
     pygame.display.flip()
+
+
+
