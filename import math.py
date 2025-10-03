@@ -2,6 +2,7 @@ import math
 import pygame
 import datetime
 
+
 pygame.init()
 screen = pygame.display.set_mode((900, 600))
 hand_surface = pygame.Surface((900, 600), pygame.SRCALPHA)
@@ -13,11 +14,11 @@ Colour_G = (0, 255, 0)
 def Clock_outline():
     for angle in range(0, 360, 30):
         start_point = (450, 300)
-        length = 200
+        length = 185
         end_x = start_point[0] + length * math.cos(math.radians(angle))
         end_y = start_point[1] + length * math.sin(math.radians(angle))
         end_point = (end_x, end_y)
-        pygame.draw.line(screen, (200, 200, 200), start_point, end_point, 1)
+        pygame.draw.line(screen, Colour_R, start_point, end_point, 1)
 
     for angle in range(0, 360, 6):
         start_point = (450, 300)
@@ -27,6 +28,8 @@ def Clock_outline():
         end_point = (end_x, end_y)
         pygame.draw.line(screen, (200, 200, 200), start_point, end_point, 1)
 
+    pygame.draw.circle(screen, (255, 255, 255), (450, 300), 186, 1)
+    pygame.draw.circle(screen, (255, 255, 255), (450, 300), 171, 1) # Draws outline for minutes
     pygame.draw.circle(screen, (0, 0, 0), (450, 300), 160, 0) # Circle to hide the lines
 
 
@@ -61,3 +64,6 @@ while True:
     Hands(75, hour, Colour_W)
     
     pygame.display.flip()
+
+
+
