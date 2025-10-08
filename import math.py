@@ -28,8 +28,8 @@ def Clock_outline():
         end_point = (end_x, end_y)
         pygame.draw.line(screen, (200, 200, 200), start_point, end_point, 1)
 
-    pygame.draw.circle(screen, (255, 255, 255), (450, 300), 186, 1)
-    pygame.draw.circle(screen, (255, 255, 255), (450, 300), 171, 1) # Draws outline for minutes
+    pygame.draw.circle(screen, (Colour_W), (450, 300), 186, 1)
+    pygame.draw.circle(screen, (Colour_W), (450, 300), 171, 1) # Draws outline for minutes
     pygame.draw.circle(screen, (0, 0, 0), (450, 300), 160, 0) # Circle to hide the lines
 
 
