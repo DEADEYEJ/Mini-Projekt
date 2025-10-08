@@ -41,16 +41,15 @@ def Clock_outline():
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 201, 1)
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 186, 1) # visual coolness
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 171, 1) # Draws outline for minutes
-    
 
 
 def Hands(length, radians, colour):
     start_hour_point = (450, 300)
     length_hour = length
-    end_hour_x = start_hour_point[0] + length_hour * math.cos(math.radians(radians))
-    end_hour_y = start_hour_point[1] + length_hour * math.sin(math.radians(radians))
+    end_hour_x = start_hour_point[0] + length_hour * math.cos(math.radians(radians)) # Math for the hand x positions
+    end_hour_y = start_hour_point[1] + length_hour * math.sin(math.radians(radians)) # Math for the hand y positions
     end_hour_point = (end_hour_x, end_hour_y)
-    pygame.draw.line(hand_surface, (colour), start_hour_point, end_hour_point, 1)
+    pygame.draw.line(hand_surface, (colour), start_hour_point, end_hour_point, 1) # Drawing the hand thingys
     screen.blit(hand_surface, (0, 0))
 
 
@@ -63,20 +62,20 @@ while True:
 
     current_time = datetime.datetime.now()
 
-    hour = (current_time.hour + current_time.minute / 60) * 30 - 90
-    minute = (current_time.minute + current_time.second / 60) * 6 - 90
-    second = current_time.second * 6 - 90
+    hour = (current_time.hour + current_time.minute / 60) * 30 - 90 # defines the hour of the day and some math to make it work
+    minute = (current_time.minute + current_time.second / 60) * 6 - 90 # samething as line 65 but for minutes
+    second = current_time.second * 6 - 90 # same as line 65 but for seconds - Vi minuser 90 så viserne starter i toppen
 
     hand_surface.fill((0, 0, 0))
 
-    Clock_outline()
-    Hands(150, second, Colour_R)
-    Hands(125, minute, Colour_W)
-    Hands(75, hour, Colour_W)
+    Clock_outline() # draws the outline of the circle
+    Hands(150, second, Colour_R) # draws the seconds hand
+    Hands(125, minute, Colour_W) # draws the minutes hand
+    Hands(75, hour, Colour_W) # draws the hours hand
     
     
 
-    pygame.display.flip()
+    pygame.display.flip() # updates display
 
 
 
