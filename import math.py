@@ -7,7 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((900, 600))
 hand_surface = pygame.Surface((900, 600), pygame.SRCALPHA)
 screen.fill((0, 0, 0))
-Colour_R = (240, 0, 0)
+Colour_R = (255, 0, 0)
 Colour_W = (255, 255, 255)
 Colour_G = (0, 255, 0)
 
