@@ -41,7 +41,7 @@ def Clock_outline():
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 201, 1)
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 186, 1) # visual coolness
     pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 171, 1) # Draws outline for minutes
-    # pygame.draw.circle(screen, (0, 0, 0), (450, 300), 160, 0) # Circle to hide the lines
+    
 
 
 def Hands(length, radians, colour):
