@@ -15,22 +15,33 @@ def Clock_outline():
     for angle in range(0, 360, 30):
         start_point = (450, 300)
         length = 185
-        end_x = start_point[0] + length * math.cos(math.radians(angle))
-        end_y = start_point[1] + length * math.sin(math.radians(angle))
+
+        end_x_2 = start_point[0] + (length + 15) * math.cos(math.radians(angle)) # draws the second x point to the line
+        end_y_2 = start_point[1] + (length + 15) * math.sin(math.radians(angle)) # Does the same for y
+        end_point_2 = (end_x_2, end_y_2)
+
+        end_x = start_point[0] + length * math.cos(math.radians(angle)) # draws the first x point to the line
+        end_y = start_point[1] + length * math.sin(math.radians(angle)) # does the same but for y
         end_point = (end_x, end_y)
-        pygame.draw.line(screen, Colour_R, start_point, end_point, 1)
+        pygame.draw.line(hand_surface, Colour_R, end_point_2, end_point, 1) # draws the line using the two points
 
     for angle in range(0, 360, 6):
         start_point = (450, 300)
         length = 170
+
+        end_x_2 = start_point[0] + (length + 15) * math.cos(math.radians(angle)) # does the same as the line 19
+        end_y_2 = start_point[1] + (length + 15) * math.sin(math.radians(angle))
+        end_point_2 = (end_x_2, end_y_2)
+
         end_x = start_point[0] + length * math.cos(math.radians(angle))
         end_y = start_point[1] + length * math.sin(math.radians(angle))
         end_point = (end_x, end_y)
-        pygame.draw.line(screen, (200, 200, 200), start_point, end_point, 1)
+        pygame.draw.line(hand_surface, (200, 200, 200), end_point_2, end_point, 1)
 
-    pygame.draw.circle(screen, (Colour_W), (450, 300), 186, 1)
-    pygame.draw.circle(screen, (Colour_W), (450, 300), 171, 1) # Draws outline for minutes
-    pygame.draw.circle(screen, (0, 0, 0), (450, 300), 160, 0) # Circle to hide the lines
+    pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 201, 1)
+    pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 186, 1) # visual coolness
+    pygame.draw.circle(hand_surface, (Colour_W), (450, 300), 171, 1) # Draws outline for minutes
+    # pygame.draw.circle(screen, (0, 0, 0), (450, 300), 160, 0) # Circle to hide the lines
 
 
 def Hands(length, radians, colour):
@@ -56,13 +67,15 @@ while True:
     minute = (current_time.minute + current_time.second / 60) * 6 - 90
     second = current_time.second * 6 - 90
 
-    hand_surface.fill((0, 0, 0, 0))  # Clear with transparency
+    hand_surface.fill((0, 0, 0))
 
     Clock_outline()
     Hands(150, second, Colour_R)
     Hands(125, minute, Colour_W)
     Hands(75, hour, Colour_W)
     
+    
+
     pygame.display.flip()
 
 
